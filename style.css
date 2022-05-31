@@ -19,9 +19,8 @@ html {
   /* HEADER SECTION STLYE */
   h1 {
     text-align: center;
-    padding-top: 1rem;
+    padding: 2rem;
   }
-
 
 /* KEYBOARD STLYING  */
 .container {
@@ -45,7 +44,7 @@ html {
       width: 3.2rem;
   }
 
-  /*MARGINS FOR DESKTOP LAYOUT*/
+  /*SIZES FOR DESKTOP LAYOUT*/
 @media (min-width: 650px) {
   button {
     width: 3rem;
@@ -56,3 +55,29 @@ html {
       width: 5rem;
   }
 }
+
+.container_grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-stlyes > * {
+  margin: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid black;
+}
+
+.grid-stlyes {
+  margin-bottom:  3rem;
+}
+
+  /*SIZES FOR DESKTOP LAYOUT*/
+  @media (min-width: 650px) {
+    .grid-stlyes > * {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
