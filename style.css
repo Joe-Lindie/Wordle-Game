@@ -23,7 +23,7 @@ html {
   }
 
 /* KEYBOARD STLYING  */
-.container {
+.container_keyboard {
     display: flex;
     flex-direction: column;
     align-items: center;
