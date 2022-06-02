@@ -67,7 +67,7 @@ button {
   width: 1.7rem;
   height: 1.7rem;
 }
-
+/* ENTER & BACK KEYS  */
 .row-three button:first-child,
 .row-three button:last-child {
   width: 3.2rem;
@@ -79,7 +79,7 @@ button {
     width: 3rem;
     height: 3rem;
   }
-
+/* ENTER & BACK KEYS  */
   .row-three button:first-child,
   .row-three button:last-child {
     width: 5rem;
