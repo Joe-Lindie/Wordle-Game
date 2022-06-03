@@ -1,6 +1,7 @@
 const letters = document.querySelectorAll("button")
 const tiles = document.querySelectorAll(".tile")
 
+//ARRAY OF FIVE LETTER WORDS
 const words = [
   "Adult",
   "Anger",
@@ -28,29 +29,45 @@ function targetWord() {
   return randomWord
 }
 
+//EVENT LISTENERS FOR ON-SCREEN KEYBOARD/KEYBOARD KEYS
+letters.forEach((letter) => {
+  letter.addEventListener("click", keyboardClick)
+})
+
+//GET DATA KEY FUNCTION
+function keyboardClick(letter) {
+  if (letter.target.matches("[data-key]")) {
+    pressKey(letter.target.dataset.key)
+    return
+  }
+}
+
+//NEW LETTER FUNCTION
+function pressKey(letter) {
+  console.log(letter)
+  // set equal to selected square to place guess
+}
+
+/*
+//EVENT LISTENERS FOR ON-SCREEN KEYBOARD KEYS
+letters.forEach((button) => {
+  button.addEventListener("click", function () {
+    let selectedCharacter = button.innerHTML
+
+    //ADDS SELECTED VALUE TO ALL 30 TILES
+    tiles.forEach((tile) => {
+      tile.innerHTML = selectedCharacter
+    })
+  })
+})
+*/
+
 // EVENT LISTENERS FOR KEYBOARD KEYS
 document.addEventListener("keypress", (event) => {
   let keyName = event.key.toUpperCase()
 
-  // Adds selected value to all 30 tiles
+  //ADDS SELECTED VALUE TO ALL 30 TILES
   tiles.forEach((tile) => {
-    console.log((tile.innerHTML = keyName))
+    tile.innerHTML = keyName
   })
 })
-
-// EVENT LISTENERS FOR SCREEN KEYBOARD KEYS
-letters.forEach((button) => {
-  button.addEventListener("click", function () {
-    let Selectedcharacter = button.innerHTML
-
-    // Adds selected value to all 30 tiles
-    tiles.forEach((tile) => {
-      console.log((tile.innerHTML = Selectedcharacter))
-    })
-  })
-})
-
-/*
- const keyboardKeys = document.querySelector(".key")
-    console.log(keyboardKeys.dataset.key)
-*/
