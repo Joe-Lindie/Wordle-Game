@@ -29,45 +29,28 @@ function targetWord() {
   return randomWord
 }
 
-//EVENT LISTENERS FOR ON-SCREEN KEYBOARD/KEYBOARD KEYS
+//EVENT LISTENERS FOR ON-SCREEN KEYBOARD AND KEYBOARD KEYS
 letters.forEach((letter) => {
-  letter.addEventListener("click", keyboardClick)
+  letter.addEventListener("click", screenKeyboardClick)
 })
 
-//GET DATA KEY FUNCTION
+document.addEventListener("keypress", keyboardClick)
+
+//GET SCREEN KEYBOARD LETTERS FUNCTION
+function screenKeyboardClick(letter) {
+  let pressKey = letter.target.dataset.key
+  console.log(pressKey)
+  return
+}
+
+//GET KEYBOARD LETTERS FUNCTION
 function keyboardClick(letter) {
-  if (letter.target.matches("[data-key]")) {
-    pressKey(letter.target.dataset.key)
-    return
+  if (letter.key.toUpperCase()) {
+    console.log(letter.key.toUpperCase())
   }
 }
 
-//NEW LETTER FUNCTION
-function pressKey(letter) {
-  console.log(letter)
-  // set equal to selected square to place guess
-}
-
-/*
-//EVENT LISTENERS FOR ON-SCREEN KEYBOARD KEYS
-letters.forEach((button) => {
-  button.addEventListener("click", function () {
-    let selectedCharacter = button.innerHTML
-
-    //ADDS SELECTED VALUE TO ALL 30 TILES
-    tiles.forEach((tile) => {
-      tile.innerHTML = selectedCharacter
-    })
-  })
-})
-*/
-
-// EVENT LISTENERS FOR KEYBOARD KEYS
-document.addEventListener("keypress", (event) => {
-  let keyName = event.key.toUpperCase()
-
-  //ADDS SELECTED VALUE TO ALL 30 TILES
-  tiles.forEach((tile) => {
-    tile.innerHTML = keyName
-  })
+//LOOP FOR TILES
+tiles.forEach((tile) => {
+  console.log((tile.innerHTML = "s"))
 })
