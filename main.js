@@ -39,18 +39,25 @@ document.addEventListener("keypress", keyboardClick)
 //GET SCREEN KEYBOARD LETTERS FUNCTION
 function screenKeyboardClick(letter) {
   let pressKey = letter.target.dataset.key
-  console.log(pressKey)
-  return
+
+  //ADD LETTERS TO GRID
+  for (let i = 0; i < tiles.length; i++) {
+    if (tiles[i].innerHTML === "") {
+      tiles[i].innerHTML = pressKey
+      return
+    }
+  }
 }
 
 //GET KEYBOARD LETTERS FUNCTION
 function keyboardClick(letter) {
-  if (letter.key.toUpperCase()) {
-    console.log(letter.key.toUpperCase())
+  let pressKey = letter.key.toUpperCase()
+
+  //ADD LETTERS TO GRID
+  for (let i = 0; i < tiles.length; i++) {
+    if (tiles[i].innerHTML === "") {
+      tiles[i].innerHTML = pressKey
+      return
+    }
   }
 }
-
-//LOOP FOR TILES
-tiles.forEach((tile) => {
-  console.log((tile.innerHTML = "s"))
-})
