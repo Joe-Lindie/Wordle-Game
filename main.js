@@ -1,6 +1,9 @@
 const letters = document.querySelectorAll("button")
 const tiles = document.querySelectorAll(".tile")
 
+let wordLength = 5
+let count = 0
+
 //ARRAY OF FIVE LETTER WORDS
 const words = [
   "Adult",
@@ -40,10 +43,16 @@ document.addEventListener("keypress", keyboardClick)
 function screenKeyboardClick(letter) {
   let pressKey = letter.target.dataset.key
 
-  //ADD LETTERS TO GRID
+  //USER CAN ONLY ENTER FIVE LETTERS
+  if (count === wordLength) {
+    return
+  }
+
+  //ADDS LETTERS TO GRID
   for (let i = 0; i < tiles.length; i++) {
     if (tiles[i].innerHTML === "") {
       tiles[i].innerHTML = pressKey
+      count++
       return
     }
   }
@@ -53,10 +62,16 @@ function screenKeyboardClick(letter) {
 function keyboardClick(letter) {
   let pressKey = letter.key.toUpperCase()
 
-  //ADD LETTERS TO GRID
+  //USER CAN ONLY ENTER FIVE LETTERS
+  if (count === wordLength) {
+    return
+  }
+
+  //ADDS LETTERS TO GRID
   for (let i = 0; i < tiles.length; i++) {
     if (tiles[i].innerHTML === "") {
       tiles[i].innerHTML = pressKey
+      count++
       return
     }
   }
