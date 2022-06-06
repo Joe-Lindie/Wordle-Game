@@ -3,11 +3,12 @@ const tiles = document.querySelectorAll(".tile")
 
 let wordLength = 5
 let count = 0
+let guess = []
 
 //ARRAY OF FIVE LETTER WORDS
 const words = [
   "Adult",
-  "Anger",
+  /*"Anger",
   "Apple",
   "Beach",
   "Birth",
@@ -22,7 +23,7 @@ const words = [
   "Enemy",
   "Fault",
   "Field",
-  "Fight",
+  "Fight",*/
 ]
 
 //TARGET WORDS FUNCTION
@@ -43,6 +44,11 @@ document.addEventListener("keypress", keyboardClick)
 function screenKeyboardClick(letter) {
   let pressKey = letter.target.dataset.key
 
+  if (guess.length < wordLength) {
+    guess.push(pressKey)
+    return console.log(guess.join(""))
+  }
+
   //USER CAN ONLY ENTER FIVE LETTERS
   if (count === wordLength) {
     return
@@ -51,7 +57,7 @@ function screenKeyboardClick(letter) {
   //ADDS LETTERS TO GRID
   for (let i = 0; i < tiles.length; i++) {
     if (tiles[i].innerHTML === "") {
-      tiles[i].innerHTML = pressKey
+      tiles[i].innerHTML = [pressKey]
       count++
       return
     }
@@ -76,3 +82,11 @@ function keyboardClick(letter) {
     }
   }
 }
+
+//WON THE GAME FUNCTION
+function winner() {
+  if (targetWord() === console.log(guess)) {
+    console.log("You Won!")
+  }
+}
+winner()
