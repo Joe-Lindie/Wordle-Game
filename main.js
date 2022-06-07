@@ -84,9 +84,11 @@ function keyboardClick(letter) {
 }
 
 //WON THE GAME FUNCTION
-function winner() {
+function submitGuess() {
   if (targetWord() === console.log(guess)) {
     console.log("You Won!")
+  } else {
+    console.log("better luck next time")
   }
 }
-winner()
+submitGuess()
