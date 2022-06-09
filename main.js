@@ -1,5 +1,5 @@
 const letters = document.querySelectorAll("button")
-const tiles = document.querySelectorAll(".tile")
+let tiles = document.querySelectorAll(".tile")
 
 let wordLength = 5
 let count = 0
@@ -43,11 +43,7 @@ document.addEventListener("keypress", keyboardClick)
 //GET SCREEN KEYBOARD LETTERS FUNCTION
 function screenKeyboardClick(letter) {
   let pressKey = letter.target.dataset.key
-
-  if (guess.length < wordLength) {
-    guess.push(pressKey)
-    return console.log(guess.join(""))
-  }
+  console.log(pressKey)
 
   //USER CAN ONLY ENTER FIVE LETTERS
   if (count === wordLength) {
@@ -56,12 +52,21 @@ function screenKeyboardClick(letter) {
 
   //ADDS LETTERS TO GRID
   for (let i = 0; i < tiles.length; i++) {
+    let correctLocation = (tiles[i].style.backgroundColor = "green")
+    let wrongLetter = (tiles[i].style.backgroundColor = "gray")
+    let correctLetter = (tiles[i].style.backgroundColor = "yellow")
+
     if (tiles[i].innerHTML === "") {
       tiles[i].innerHTML = [pressKey]
       count++
       return
     }
   }
+
+  // if (guess.length < wordLength) {
+  //   guess.push(pressKey)
+  //   return console.log(guess.join(""))
+  // }
 }
 
 //GET KEYBOARD LETTERS FUNCTION
@@ -83,12 +88,12 @@ function keyboardClick(letter) {
   }
 }
 
-//WON THE GAME FUNCTION
-function submitGuess() {
-  if (targetWord() === console.log(guess)) {
-    console.log("You Won!")
-  } else {
-    console.log("better luck next time")
-  }
-}
-submitGuess()
+// //WON THE GAME FUNCTION
+// function submitGuess() {
+//   if (targetWord() === console.log(guess)) {
+//     console.log("You Won!")
+//   } else {
+//     console.log("better luck next time")
+//   }
+// }
+// submitGuess()
